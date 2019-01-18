@@ -1,0 +1,32 @@
+################## Migration Project ###########################
+
+Assignment: Need to load the data present in the input csv to the output csv.
+Prepare Participant BO  Template and Import it.
+
+The  output will be as per the Requirement.Requirements are as below,
+
+1) First reads data from input CSV files into PDI 'CSV File Input'transformation.
+2) Name field of input CSV is change as PPID.
+3) ORIGINS Date of Collection as Registration Date if it is null then use  ORIGINS Date Processed/Frozen.
+4) Add Constant CP Short Title. 
+5) Generate Unique PPID.
+5) Run the script and verified the output CSV.
+
+Solution : 
+
+1) First reads data from input CSV files into PDI using 'CSV File Input' transformation.
+
+2) To Renaming the fields use Select Value Transformation then rename fields using Select and Alter Section.
+ 
+3) Use modified JS for set registration date.
+
+4) Add Constant CP Short Title using Add Constant Transformatioin.
+
+5) For generation of unique PPID use Memory Group by Transformatioin.
+
+6) Load all the data from input CSV to the output CSV with by using 'Text Output' transformation.
+
+7) Run the script and verified the output CSV also verified the changes in CSV.
+
+8) Impoprt CSV Locally. 
+
