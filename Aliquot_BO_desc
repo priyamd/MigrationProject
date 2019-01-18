@@ -1,0 +1,38 @@
+################## Migration Project ###########################
+
+Assignment: Need to load the data present in the input csv to the output csv.
+Prepare Aliquot BO  Template and Import it.
+
+The  output will be as per the Requirement.Requirements are as below,
+
+1) First reads data from input CSV files into PDI 'CSV File Input'transformation.
+2) Generate Unique PPID.
+3) Parent Specimen label field of input CSV is change as combination of PPID and _WB.Pl(PPID_WB.Pl).
+4) Specimen label field of input CSV is change as  combination of PPID and _WB.Pl(PPID_WB.Pl) and sequence of aliquot.
+5) Add columns ORIGINS Date Processed/Frozen as Created on,Tube Barcode as Barcode.
+6) Add Constant CP Short Title,Type='Plasma' , class = 'Fluid' and Lineage='Aliquot'.
+7) Add column comments as concat Working box barcode and storage box barcode. 
+8) Run the script and verified the output CSV.
+
+Solution : 
+
+1) First reads data from input CSV files into PDI using 'CSV File Input' transformation.
+
+2) To Renaming the fields use Select Value Transformation then rename fields using Select and Alter Section.
+ 
+4) For generation of unique PPID use Memory Group by Transformatioin.
+
+5) Concat PPID and '_WB.Pl' using modified JS for Parent Specimen label.
+
+6) Concat Parent Specimen label and Sequence number of aliquot using Concat field Transformatioin.
+
+7) Add Constant CP Short Title,Type,class and Lineage using Add Constant Transformatioin.
+
+7) Add Comments using concating the Working box barcode and storage box barcode fields. 
+
+8) Load all the data from input CSV to the output CSV with by using 'Text Output' transformation.
+
+9) Run the script and verified the output CSV also verified the changes in CSV.
+
+10) Impoprt CSV Locally. 
+
