@@ -1,0 +1,37 @@
+################## Migration Project ###########################
+
+Assignment: Need to load the data present in the input csv to the output csv.
+Prepare Specimen BO  Template and Import it.
+
+The  output will be as per the Requirement.Requirements are as below,
+
+1) First reads data from input CSV files into PDI 'CSV File Input'transformation.
+2) Generate Unique PPID.
+3) Specimen label field of input CSV is change as combination of PPID and _WB(PPID_WB).
+4) ORIGINS Date of Collection as Collection and Recieved Date if it is null then use  ORIGINS Date Processed/Frozen.
+5) Add Visit Name as PPID and Collection Date.
+6) Add Constant CP Short Title,Type='Whole Blood'and Lineage='New'. 
+7) Run the script and verified the output CSV.
+
+Solution : 
+
+1) First reads data from input CSV files into PDI using 'CSV File Input' transformation.
+
+2) To Renaming the fields use Select Value Transformation then rename fields using Select and Alter Section.
+ 
+3) Use modified JS for set Collection date.
+
+4) For generation of unique PPID use Memory Group by Transformatioin.
+
+5) Concat PPID and '_WB' using modified JS for Specimen label.
+
+6) Concat PPID and Visit Date for visit name using Concat Field Transformation.
+
+7) Add Constant CP Short Title,Type and Lineage using Add Constant Transformatioin.
+
+8) Load all the data from input CSV to the output CSV with by using 'Text Output' transformation.
+
+9) Run the script and verified the output CSV also verified the changes in CSV.
+
+10) Impoprt CSV Locally. 
+
